@@ -1,0 +1,42 @@
+.button {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 200px;
+}
+
+.text-element {
+    font-size: 60px;
+    -unity-text-align: middle-center;
+}
+
+#game-mode-field {
+    height: 200px;
+}
+
+#game-mode-field Label {
+    padding-right: 50px;
+}
+
+#game-mode-field TextElement {
+    -unity-text-align: upper-center;
+    text-overflow: clip;
+    white-space: pre;
+    align-self: center;
+}
+
+.unity-base-field__input {
+    justify-content: center;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 40px;
+    padding-bottom: 0;
+    padding-left: 40px;
+}
+
+.unity-enum-field__arrow {
+    width: 50px;
+    height: 50px;
+}

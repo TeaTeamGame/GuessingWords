@@ -1,8 +1,15 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/BlackWhiteTheme/StartGame.uss?fileID=7433441132597879392&amp;guid=06b11fe9d5831c14da5e3810198c2c5a&amp;type=3#StartGame" />
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/Start%20Game%20Default.uss?fileID=7433441132597879392&amp;guid=e4766ad9ace2540ae9a93c551443955c&amp;type=3#Start Game Default" />
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/BlackWhiteTheme/StartGame-BlackWhite.uss?fileID=7433441132597879392&amp;guid=06b11fe9d5831c14da5e3810198c2c5a&amp;type=3#StartGame-BlackWhite" />
     <ui:VisualElement name="background" class="element" style="flex-grow: 1;">
-        <ui:VisualElement name="start-game-options" style="overflow: visible; position: absolute; width: 1000px; align-self: center; height: 500px; justify-content: space-between; top: 50%; translate: 0 -50%;">
+        <ui:VisualElement name="start-game-options" class="text-element" style="overflow: visible; width: 1000px; align-self: center; justify-content: center; display: flex; opacity: 0.2; position: absolute; flex-grow: 1;">
             <ui:Button text="Create game" name="create-game-btn" class="button element border" />
+            <ui:Button text="Join game" name="join-game-btn" class="button element border" />
+        </ui:VisualElement>
+        <ui:VisualElement name="create-game-ui" class="text-element" style="flex-grow: 1; width: 80%; align-self: center; justify-content: center; position: relative;">
+            <ui:EnumField value="Center" type="GameCore.GameMode, Assembly-CSharp" data-source-type="GameCore.GameMode, Assembly-CSharp" name="game-mode-field" style="flex-direction: row-reverse; margin-top: 0; margin-right: 0; margin-bottom: 50px; margin-left: 0;">
+                <ui:Label text="Mode" />
+            </ui:EnumField>
             <ui:Button text="Join game" name="join-game-btn" class="button element border" />
         </ui:VisualElement>
     </ui:VisualElement>

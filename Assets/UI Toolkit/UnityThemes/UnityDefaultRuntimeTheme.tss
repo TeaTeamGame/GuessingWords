@@ -1,1 +1,3 @@
 @import url("unity-theme://default");
+
+@import url("/Assets/UI Toolkit/Style Sheet/Default/Start Game Default.uss");
