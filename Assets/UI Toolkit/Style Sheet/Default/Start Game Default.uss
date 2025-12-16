@@ -9,34 +9,33 @@
     -unity-text-align: middle-center;
 }
 
-#game-mode-field {
+.game-mode-selection__border {
+    flex-grow: 0;
+    width: 200px;
     height: 200px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
 }
 
-#game-mode-field Label {
-    padding-right: 50px;
+.game-mode-selections {
+    flex-grow: 0;
+    height: 200px;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
-#game-mode-field TextElement {
-    -unity-text-align: upper-center;
-    text-overflow: clip;
-    white-space: pre;
-    align-self: center;
-}
-
-.unity-base-field__input {
-    justify-content: center;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 40px;
-    padding-bottom: 0;
-    padding-left: 40px;
-}
-
-.unity-enum-field__arrow {
-    width: 50px;
-    height: 50px;
+.game-mode-selection--selected {
+    scale: 1.2 1.2;
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
 }

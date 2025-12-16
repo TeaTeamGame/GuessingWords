@@ -7,10 +7,8 @@
             <ui:Button text="Join game" name="join-game-btn" class="button element border" />
         </ui:VisualElement>
         <ui:VisualElement name="create-game-ui" class="text-element" style="flex-grow: 1; width: 80%; align-self: center; justify-content: center; position: relative;">
-            <ui:EnumField value="Center" type="GameCore.GameMode, Assembly-CSharp" data-source-type="GameCore.GameMode, Assembly-CSharp" name="game-mode-field" style="flex-direction: row-reverse; margin-top: 0; margin-right: 0; margin-bottom: 50px; margin-left: 0;">
-                <ui:Label text="Mode" />
-            </ui:EnumField>
-            <ui:Button text="Join game" name="join-game-btn" class="button element border" />
+            <UI.CustomElement.SelectGameMode name="game-mode-selection" />
+            <UI.CustomElement.CustomButton name="join-game-btn" text="Create game" class="button border" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
