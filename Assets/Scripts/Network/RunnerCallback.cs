@@ -6,13 +6,21 @@ using UnityEngine;
 
 namespace Network
 {
-    public class StartGameCallback : MonoBehaviour, INetworkRunnerCallbacks
+    public class RunnerCallback: MonoBehaviour, INetworkRunnerCallbacks
     {
+        public Action OnHostConnected;
+        
         public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
 
         public void OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
 
-        public void OnPlayerJoined(NetworkRunner runner, PlayerRef player) { }
+        public void OnPlayerJoined(NetworkRunner runner, PlayerRef player) 
+        {
+            if (player == runner.LocalPlayer && runner.IsServer)
+            {
+                OnHostConnected?.Invoke();
+            }
+        }
 
         public void OnPlayerLeft(NetworkRunner runner, PlayerRef player) { }
 
@@ -20,7 +28,11 @@ namespace Network
 
         public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason) { }
 
-        public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
+        public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request,
+            byte[] token)
+        {
+            print("OnConnectRequest");
+        }
 
         public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { }
 
@@ -34,7 +46,10 @@ namespace Network
 
         public void OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
 
-        public void OnConnectedToServer(NetworkRunner runner) { }
+        public void OnConnectedToServer(NetworkRunner connectedRunner)
+        {
+            print("OnConnectedToServer");
+        }
 
         public void OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
 
