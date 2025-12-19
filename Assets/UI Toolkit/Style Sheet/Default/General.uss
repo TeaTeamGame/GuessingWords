@@ -1,0 +1,37 @@
+.button {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 200px;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out-sine;
+}
+
+.button:hover {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 200px;
+    scale: 1.1 1.1;
+}
+
+.custom-text-field {
+    height: 200px;
+}
+
+.custom-text-field > #unity-text-input {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 40px;
+    font-size: 90%;
+    padding-top: 0;
+    padding-right: 50px;
+    padding-bottom: 0;
+    padding-left: 50px;
+    -unity-text-align: upper-center;
+}
+
+.custom-text-field > #unity-text-input > TextElement {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre;
+}

@@ -1,0 +1,35 @@
+.text-element {
+    font-size: 60px;
+    -unity-text-align: middle-center;
+}
+
+.game-mode-selection__border {
+    flex-grow: 0;
+    width: 200px;
+    height: 200px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}
+
+.game-mode-selections {
+    flex-grow: 0;
+    height: 200px;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.game-mode-selection--selected {
+    scale: 1.2 1.2;
+    border-top-width: 10px;
+    border-right-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 10px;
+}

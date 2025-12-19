@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/General.uss?fileID=7433441132597879392&amp;guid=22fc223e51bc6e64db8efffca69c7b98&amp;type=3#General" />
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/BlackWhiteTheme/General-BlackWhite.uss?fileID=7433441132597879392&amp;guid=65072d3a600353a43b16d13fee98a274&amp;type=3#General-BlackWhite" />
+    <ui:VisualElement name="background" class="element" style="flex-grow: 1;">
+        <ui:VisualElement name="start-game-options" class="text-element" style="width: 1000px; align-self: center; justify-content: center; position: relative; flex-grow: 1; display: none;">
+            <UI.CustomElement.CustomButton name="create-game-btn" text="Create game" class="button border element" />
+            <UI.CustomElement.CustomButton name="join-game-btn" text="Join game" class="button border element" />
+        </ui:VisualElement>
+        <ui:VisualElement name="create-game-ui" class="text-element" style="flex-grow: 1; width: 80%; align-self: center; justify-content: center; position: relative; display: none;">
+            <UI.CustomElement.SelectGameMode name="game-mode-selection" />
+            <UI.CustomElement.CustomButton name="create-game-btn" text="Create game" class="button border" />
+        </ui:VisualElement>
+        <ui:VisualElement name="join-game-ui" class="text-element" style="flex-grow: 1; width: 80%; align-self: center; justify-content: center; position: relative; display: flex;">
+            <UI.CustomElement.CustomTextField label="Room id: " name="join-game-code-field" />
+            <UI.CustomElement.CustomButton name="join-game-btn" text="Join game" class="button border" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
