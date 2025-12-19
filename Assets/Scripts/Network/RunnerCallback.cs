@@ -19,6 +19,7 @@ namespace Network
             if (player == runner.LocalPlayer && runner.IsServer)
             {
                 OnHostConnected?.Invoke();
+                print(runner.SessionInfo.Name);
             }
         }
 
