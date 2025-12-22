@@ -1,0 +1,70 @@
+#game-setting {
+    background-color: rgb(31, 38, 51);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+
+#create-room-btn {
+    background-color: rgb(19, 91, 236);
+}
+
+#create-room-btn Image {
+    background-color: rgb(19, 91, 236);
+    position: absolute;
+    right: -20px;
+    scale: 0.5 0.5;
+}
+
+.select-number-of-digits__label {
+    -unity-font-definition: resource('Fonts/Kanit-ExtraLight');
+    -unity-text-align: upper-left;
+}
+
+.select-number-of-digits__options-container {
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(16, 22, 34);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    margin-top: 20px;
+}
+
+.select-number-of-digits__option-button {
+    flex-grow: 1;
+    -unity-font-definition: resource('Fonts/Kanit-Regular');
+}
+
+.option--active {
+    background-color: rgb(19, 91, 236);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.select-number-of-digits__description-label {
+    flex-grow: 1;
+    -unity-font-definition: resource('Fonts/Kanit-ExtraLight');
+    -unity-font-style: normal;
+    font-size: 80%;
+    margin-top: 20px;
+    margin-right: 0;
+    margin-bottom: 20px;
+    margin-left: 0;
+    white-space: pre-wrap;
+    -unity-text-align: upper-left;
+    background-color: rgb(16, 22, 34);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding-top: 20px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    color: rgba(255, 255, 255, 0.62);
+}

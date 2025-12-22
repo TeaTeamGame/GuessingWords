@@ -1,37 +1,26 @@
+.text-element {
+    font-size: 60px;
+    -unity-text-align: middle-center;
+    -unity-font-style: normal;
+    color: rgb(255, 255, 255);
+    -unity-font-definition: resource('Fonts/toxigenesis bd');
+}
+
+#background {
+    background-color: rgb(16, 22, 34);
+    flex-grow: 1;
+}
+
 .button {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    height: 200px;
-    transition-duration: 0.1s;
-    transition-timing-function: ease-in-out-sine;
+    height: 175px;
+    transition-duration: 0.2s;
 }
 
 .button:hover {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    height: 200px;
     scale: 1.1 1.1;
 }
 
-.custom-text-field {
-    height: 200px;
-}
-
-.custom-text-field > #unity-text-input {
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 40px;
-    font-size: 90%;
-    padding-top: 0;
-    padding-right: 50px;
-    padding-bottom: 0;
-    padding-left: 50px;
-    -unity-text-align: upper-center;
-}
-
-.custom-text-field > #unity-text-input > TextElement {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: pre;
+.button > Image {
+    height: 175px;
+    translate: -50px 0;
 }

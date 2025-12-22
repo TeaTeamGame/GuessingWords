@@ -1,18 +1,21 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/General.uss?fileID=7433441132597879392&amp;guid=22fc223e51bc6e64db8efffca69c7b98&amp;type=3#General" />
-    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/BlackWhiteTheme/General-BlackWhite.uss?fileID=7433441132597879392&amp;guid=65072d3a600353a43b16d13fee98a274&amp;type=3#General-BlackWhite" />
-    <ui:VisualElement name="background" class="element" style="flex-grow: 1;">
-        <ui:VisualElement name="start-game-options" class="text-element" style="width: 1000px; align-self: center; justify-content: center; position: relative; flex-grow: 1; display: none;">
-            <UI.CustomElement.CustomButton name="create-game-btn" text="Create game" class="button border element" />
-            <UI.CustomElement.CustomButton name="join-game-btn" text="Join game" class="button border element" />
+    <ui:VisualElement name="background" class="element backgound text-element">
+        <ui:VisualElement name="game-title" style="flex-grow: 1; justify-content: center; position: relative;">
+            <ui:Label text="ĐOÁN SỐ" name="game-title" style="-unity-font-style: normal; font-size: 120%;" />
+            <ui:Label text="Game đoán số 2 người chơi" name="game-description" style="-unity-font-style: normal; font-size: 60%; -unity-font-definition: resource(&apos;Fonts/Kanit-ExtraLight&apos;); -unity-text-align: upper-center;" />
         </ui:VisualElement>
-        <ui:VisualElement name="create-game-ui" class="text-element" style="flex-grow: 1; width: 80%; align-self: center; justify-content: center; position: relative; display: none;">
-            <UI.CustomElement.SelectGameMode name="game-mode-selection" />
-            <UI.CustomElement.CustomButton name="create-game-btn" text="Create game" class="button border" />
+        <ui:VisualElement name="start-game-options" class="text-element" style="width: 1000px; align-self: center; justify-content: flex-end; position: absolute; display: flex; bottom: 100px;">
+            <UI.CustomElement.CustomButton name="create-game-btn" text="Tạo phòng" icon-image="project://database/Assets/Resources/Sprites/add.png?fileID=2800000&amp;guid=550627448857eb140a8199bd1a0a7478&amp;type=3#add" class="button border element" style="margin-bottom: 25px;" />
+            <UI.CustomElement.CustomButton name="join-game-btn" text="Tham gia" icon-image="project://database/Assets/Resources/Sprites/join.png?fileID=2800000&amp;guid=6cfcb70beb6d7dd4695e16cf9d9037d0&amp;type=3#join" class="button border element" style="margin-top: 25px; margin-bottom: 25px;" />
         </ui:VisualElement>
-        <ui:VisualElement name="join-game-ui" class="text-element" style="flex-grow: 1; width: 80%; align-self: center; justify-content: center; position: relative; display: flex;">
-            <UI.CustomElement.CustomTextField label="Room id: " name="join-game-code-field" />
-            <UI.CustomElement.CustomButton name="join-game-btn" text="Join game" class="button border" />
+        <ui:VisualElement name="header" style="flex-grow: 1; position: absolute; width: 100%; top: 120px; padding-right: 100px; padding-left: 100px;">
+            <ui:VisualElement name="player-info" class="player-info" style="flex-grow: 1; height: 200px; align-self: flex-start; width: 800px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; justify-content: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-right: 20px; padding-left: 20px; flex-direction: row; align-items: center;">
+                <ui:VisualElement name="avatar" style="flex-grow: 0; width: 150px; height: 150px; background-image: resource(&apos;Sprites/avatar/panda&apos;); margin-left: 0; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); margin-right: 25px;" />
+                <ui:VisualElement name="text" style="flex-grow: 1; -unity-text-align: middle-left; justify-content: flex-start;">
+                    <ui:Label text="Welcome" style="-unity-font-definition: resource(&apos;Fonts/Kanit-ExtraLight&apos;); color: rgb(192, 192, 192); -unity-text-align: middle-left; font-size: 40px; height: 30%;" />
+                    <ui:Label text="Player #01" name="player_name" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
