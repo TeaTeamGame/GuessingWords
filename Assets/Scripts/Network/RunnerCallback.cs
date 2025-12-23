@@ -8,7 +8,7 @@ namespace Network
 {
     public class RunnerCallback: MonoBehaviour, INetworkRunnerCallbacks
     {
-        public Action OnHostConnected;
+        public Action OnRoomCreated;
         
         public void OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
 
@@ -18,24 +18,30 @@ namespace Network
         {
             if (player == runner.LocalPlayer && runner.IsServer)
             {
-                OnHostConnected?.Invoke();
-                print(runner.SessionInfo.Name);
+                OnRoomCreated?.Invoke();
             }
         }
 
         public void OnPlayerLeft(NetworkRunner runner, PlayerRef player) { }
 
-        public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
-
-        public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason) { }
-
-        public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request,
-            byte[] token)
+        public void OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
         {
-            print("OnConnectRequest");
+            // TODO: Handle start host fail
+            // TODO: Handle server shutdown
         }
 
-        public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { }
+        public void OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason)
+        {
+            // TODO: Handle client disconnect
+        }
+
+        public void OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request,
+            byte[] token) { }
+
+        public void OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason)
+        {
+            // TODO: Handle client connect fail
+        }
 
         public void OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { }
 

@@ -1,16 +1,21 @@
+using System.Threading.Tasks;
 using Fusion;
+using GameCore.GameEvent;
 using Generals;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Network
 {
-    public class StartGameObject : Singleton<StartGameObject>
+    public class RoomManager : Singleton<RoomManager>
     {
+        [SerializeField] private GameEvent loadingEvent;
+        
         private NetworkRunner _runner;
         
-        private async void StartGame(StartGameArgs args)
+        private async Task StartGame(StartGameArgs args)
         {
+            loadingEvent.Raise();
             _runner = gameObject.AddComponent<NetworkRunner>();
             _runner.ProvideInput = true;
             
@@ -26,20 +31,19 @@ namespace Network
             args.SceneManager = gameObject.AddComponent<NetworkSceneManagerDefault>();
             
             await _runner.StartGame(args);
-            Debug.Log("Start game finished");
         }
 
-        public void StartHost()
+        public async void StartHost()
         {
-            StartGame(new StartGameArgs
+            await StartGame(new StartGameArgs
             {
                 GameMode = GameMode.Host,
             });
         }
 
-        public void StartClient(string roomName)
+        public async void StartClient(string roomName)
         {
-            StartGame(new StartGameArgs
+            await StartGame(new StartGameArgs
             {
                 GameMode = GameMode.Client,
                 SessionName = roomName

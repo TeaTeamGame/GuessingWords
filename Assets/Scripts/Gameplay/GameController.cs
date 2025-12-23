@@ -1,50 +1,47 @@
-﻿using Network;
-using UI;
+﻿using GameCore.GameEvent;
+using GameCore.GameState;
+using Gameplay.GameConfig;
+using Network;
 using UnityEngine;
-using UnityEngine.UIElements;
-using GameMode = GameCore.GameMode;
 
 namespace Gameplay
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField] private UIDocument document;
-        [SerializeField] private StartGameObject startGameObject;
-        [SerializeField] private GameModeController modeController;
+        [SerializeField] private CreateGameEvent createGameEvent;
+        [SerializeField] private GameStateChangeEvent changeGameStateEvent;
         
+        [SerializeField] private GameConfigController gameConfigController;
+        [SerializeField] private RoomManager roomManager;
+
         private RunnerCallback _runnerCallback;
-        private GameMode _mode;
-
-        private void Awake()
-        {
-            _runnerCallback = startGameObject.gameObject.AddComponent<RunnerCallback>();
-            _runnerCallback.OnHostConnected += () =>
-            {
-                modeController.SetGameMode(_mode);
-            };
-        }
-
+        private CreateGameConfig _createGameConfig;
+        
         private void Start()
         {
-            var startGameUI = new StartGameUI();
-            startGameUI.Inject(document);
-            startGameUI.OnCreateGameBtnClicked += CreateGameHandle;
-            startGameUI.OnJoinGameBtnClicked += JoinGameHandle;
+            _runnerCallback = roomManager.GetComponent<RunnerCallback>();
+            _runnerCallback.OnRoomCreated += () =>
+            {
+                gameConfigController.SetConfig(_createGameConfig);
+            };
             
-            startGameUI.Open();
+            changeGameStateEvent?.Raise(GameState.MainMenu);    
         }
-        
-        private void CreateGameHandle(GameMode mode)
+
+        private void OnEnable()
         {
-            // Start load
-            _mode = mode;
-            
-            startGameObject.StartHost();
+            createGameEvent.RegisterListener(CreateGameRequested);
         }
-        
-        private void JoinGameHandle(string sessionName)
+
+        private void OnDisable()
         {
-            startGameObject.StartClient(sessionName);
+            createGameEvent.UnregisterListener(CreateGameRequested);
+        }
+
+        private void CreateGameRequested(CreateGameConfig config)
+        {
+            _createGameConfig = config;
+            roomManager.StartHost();
         }
     }
 }
