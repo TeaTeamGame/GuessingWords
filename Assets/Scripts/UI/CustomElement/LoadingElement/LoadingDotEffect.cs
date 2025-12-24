@@ -30,6 +30,18 @@ namespace UI.CustomElement.LoadingElement
             }
         }
         private float _radius = 5f;
+        
+        [UxmlAttribute]
+        public float PointToNextDotStart
+        {
+            get => _pointToNextDotStart;
+            set
+            {
+                _pointToNextDotStart = math.clamp(value, 0f, _numberOfDot);
+                MarkDirtyRepaint();
+            }
+        }
+        private float _pointToNextDotStart = 0.75f;
 
         [UxmlAttribute]
         public float Progress
@@ -70,14 +82,26 @@ namespace UI.CustomElement.LoadingElement
                 painter.BeginPath();
 
                 dots[i] = space * i;
-                var currentDot = Mathf.FloorToInt(Progress % _numberOfDot);
                 
-                if (i == currentDot)
+                var startPos = (_progress + _numberOfDot - PointToNextDotStart) % _numberOfDot;
+                var endPos = (_progress + PointToNextDotStart) % _numberOfDot;
+
+                if (startPos < endPos && i > startPos && i < endPos)
                 {
-                    var localProgress = Progress - Mathf.Floor(Progress);
-                    var sinValue = math.sin(localProgress * math.PI); ;
+                    var value =  math.unlerp(startPos, endPos, i);
+                    var sinValue = math.sin(value * math.PI);
                     var center = new Vector2(dots[i], height * (1 - sinValue));
-                    painter.Arc(center, Radius * (sinValue + 1), 0, 360);
+                    painter.Arc(center, Radius * (sinValue / 2 + 1), 0, 360);
+                }
+                else if (startPos > endPos && (i > startPos || i < endPos))
+                {
+                    var value = i < endPos
+                        ? math.unlerp(startPos, endPos + _numberOfDot, i + _numberOfDot)
+                        : math.unlerp(startPos, endPos + _numberOfDot, i);
+                
+                    var sinValue = math.sin(value * math.PI);
+                    var center = new Vector2(dots[i], height * (1 - sinValue));
+                    painter.Arc(center, Radius * (sinValue / 2 + 1), 0, 360);
                 }
                 else
                 {

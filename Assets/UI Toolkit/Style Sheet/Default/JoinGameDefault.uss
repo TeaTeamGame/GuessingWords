@@ -1,0 +1,113 @@
+.room-id__slot {
+    height: 180px;
+    width: 130px;
+    background-color: rgb(31, 38, 51);
+    margin-top: 0;
+    margin-right: 25px;
+    margin-bottom: 0;
+    margin-left: 25px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    border-left-color: rgb(101, 101, 101);
+    border-right-color: rgb(101, 101, 101);
+    border-top-color: rgb(101, 101, 101);
+    border-bottom-color: rgb(101, 101, 101);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    -unity-font-definition: resource('Fonts/Kanit-Regular');
+    font-size: 70px;
+}
+
+.room-id__slot--active {
+    border-left-color: rgb(19, 91, 236);
+    border-right-color: rgb(19, 91, 236);
+    border-top-color: rgb(19, 91, 236);
+    border-bottom-color: rgb(19, 91, 236);
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.number-keyboard__row {
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
+    align-self: stretch;
+    flex-grow: 0;
+    height: 150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.number-keyboard__row CustomButton {
+    flex-grow: 1;
+    align-self: stretch;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-bottom: 0;
+    margin-left: 20px;
+    width: 400px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    height: auto;
+    transition-duration: 0.1s;
+}
+
+.number-keyboard__row CustomButton:active {
+    scale: 1.1 1.1;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-left-color: rgba(19, 91, 236, 0.4);
+    border-right-color: rgba(19, 91, 236, 0.4);
+    border-top-color: rgba(19, 91, 236, 0.4);
+    border-bottom-color: rgba(19, 91, 236, 0.4);
+}
+
+.number-keyboard__number-button {
+    background-color: rgb(37, 45, 58);
+}
+
+.number-keyboard__number-button:active {
+    background-color: rgb(56, 79, 115);
+}
+
+.number-keyboard__delete-button {
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
+
+.number-keyboard__delete-button:active {
+    background-color: rgb(56, 79, 115);
+}
+
+.number-keyboard__confirm-button {
+    background-color: rgb(19, 91, 236);
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+.number-keyboard__confirm-button:active {
+    background-color: rgb(56, 79, 115);
+}

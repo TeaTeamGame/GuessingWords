@@ -1,0 +1,26 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/General.uss?fileID=7433441132597879392&amp;guid=22fc223e51bc6e64db8efffca69c7b98&amp;type=3" />
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/WaitingRoom.uss?fileID=7433441132597879392&amp;guid=ff6cd79154a80c749ac255692e3efa78&amp;type=3" />
+    <ui:VisualElement name="background" class="text-element" style="flex-grow: 1; justify-content: center;">
+        <ui:VisualElement name="content" style="flex-grow: 0; align-self: center; width: 90%; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;">
+            <ui:VisualElement name="room-info" style="flex-grow: 1; background-color: rgb(28, 35, 51); padding-top: 80px; padding-right: 80px; padding-bottom: 80px; padding-left: 80px; border-left-color: rgb(51, 65, 85); border-right-color: rgb(51, 65, 85); border-top-color: rgb(51, 65, 85); border-bottom-color: rgb(51, 65, 85); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-top-left-radius: 30px; border-top-right-radius: 30px; border-bottom-right-radius: 30px; border-bottom-left-radius: 30px;">
+                <ui:VisualElement name="room-id-display" style="flex-grow: 1; flex-direction: row; -unity-font-definition: resource(&apos;Fonts/Kanit-Regular&apos;); -unity-font-style: bold;">
+                    <ui:Label text="Mã phòng:" style="margin-top: 0; margin-right: 40px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;" />
+                    <ui:Label text="298632" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: rgb(19, 87, 224);" />
+                </ui:VisualElement>
+                <ui:Label text="Chia sẻ mã để mời bạn bè" style="-unity-font-definition: resource(&apos;Fonts/Kanit-ExtraLight&apos;); -unity-text-align: middle-left; color: rgb(145, 159, 180); font-size: 50px;" />
+                <UI.CustomElement.CustomButton text="Sao chép" name="copy-button" icon-image="project://database/Assets/Resources/Sprites/copy.png?fileID=2800000&amp;guid=e21a42c8068d1cf43a80c9b2bdcc3e44&amp;type=3#copy" class="copy-button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="players-info" style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="header" style="flex-grow: 1; position: absolute; top: 100px; padding-right: 100px; padding-left: 100px; width: 100%; flex-direction: row;">
+            <UI.CustomElement.CustomButton icon-image="project://database/Assets/Resources/Sprites/back.png?fileID=2800000&amp;guid=2268eb7fbdb26c54988801e57d76b882&amp;type=3#back" name="back-btn" style="width: 100px; height: 100px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; position: absolute; display: none;" />
+            <ui:Label text="Phòng chờ" picking-mode="Ignore" style="position: relative; align-self: center; flex-grow: 1;" />
+        </ui:VisualElement>
+        <UI.CustomElement.CustomButton text="Tạo phòng ngay" name="create-room-btn" icon-image="project://database/Assets/Resources/Sprites/right-arrow.png?fileID=2800000&amp;guid=0cdf9f3322656684b983e28ddcb83e8f&amp;type=3#right-arrow" class="button" style="position: absolute; bottom: 150px; align-self: center; width: 900px;" />
+        <ui:VisualElement name="loading-element" class="loading-element" style="display: none;">
+            <ui:Label text="Loading" style="margin-right: 20px; display: none;" />
+            <UI.CustomElement.LoadingElement.LoadingDotEffect name="loading-effect" radius="10" number-of-dot="20" point-to-next-dot-start="3" style="flex-direction: row; flex-grow: 1; align-self: stretch;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,19 +1,23 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/General.uss?fileID=7433441132597879392&amp;guid=22fc223e51bc6e64db8efffca69c7b98&amp;type=3#General" />
-    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/CreateRoom.uss?fileID=7433441132597879392&amp;guid=e9ab5d38d555edb4899d7877c93e0320&amp;type=3#CreateRoom" />
+    <Style src="project://database/Assets/UI%20Toolkit/Style%20Sheet/Default/JoinGameDefault.uss?fileID=7433441132597879392&amp;guid=c4a9380d74a6f3c4c81e217fb956646e&amp;type=3#JoinGameDefault" />
     <ui:VisualElement name="background" class="text-element" style="flex-grow: 1; justify-content: center;">
-        <ui:VisualElement name="header" style="flex-grow: 1; position: absolute; top: 100px; padding-right: 100px; padding-left: 100px; width: 100%; flex-direction: row;">
-            <UI.CustomElement.CustomButton icon-image="project://database/Assets/Resources/Sprites/back.png?fileID=2800000&amp;guid=2268eb7fbdb26c54988801e57d76b882&amp;type=3#back" style="width: 100px; height: 100px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="game-setting" style="flex-grow: 0; align-self: center; width: 90%; padding-top: 50px; padding-right: 50px; padding-bottom: 50px; padding-left: 50px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;">
-            <ui:VisualElement style="flex-grow: 1; flex-direction: row; align-items: center;">
-                <ui:VisualElement style="flex-grow: 0; background-image: resource(&apos;Sprites/setting-lines&apos;); width: 80px; height: 80px; margin-right: 30px;" />
-                <ui:Label text="Cấu hình trò chơi" />
+        <ui:VisualElement name="content" style="flex-grow: 1;">
+            <ui:VisualElement name="display-input" style="flex-grow: 1; justify-content: center; align-items: center;">
+                <ui:Label text="Nhập mã phòng" style="font-size: 80%;" />
+                <ui:Label text="Nhập mã số gồm 6 chữ số bạn nhận được từ đối thủ để bắt đầu trò  chơi" style="-unity-font-definition: resource(&apos;Fonts/Kanit-ExtraLight&apos;); font-size: 40px; white-space: pre-wrap; width: 800px; color: rgb(164, 164, 164);" />
+                <UI.CustomElement.RoomIdField number-of-digits="6" style="height: 150px; width: 100%; flex-direction: row; align-items: center; justify-content: center; margin-top: 100px;" />
             </ui:VisualElement>
-            <UI.CustomElement.SelectNumberOfDigits name="select-numberof-digits" number-of-digits="4,5,6,7" style="margin-top: 50px;" />
+            <ui:VisualElement style="flex-grow: 0; justify-content: flex-end; margin-bottom: 0; margin-right: 0; margin-left: 0; margin-top: 0; background-color: rgb(26, 34, 48); padding-top: 100px; padding-right: 100px; padding-bottom: 150px; padding-left: 100px; border-top-left-radius: 30px; border-top-right-radius: 30px; border-top-width: 5px; border-top-color: rgb(103, 103, 103); border-right-color: rgb(103, 103, 103); border-left-color: rgb(103, 103, 103); border-bottom-color: rgb(103, 103, 103);">
+                <UI.CustomElement.NumberKeyboard confirm-button-text="Join" delete-icon="project://database/Assets/Resources/Sprites/delete.png?fileID=2800000&amp;guid=dab839ac3161ce648bcbdfb9100c9459&amp;type=3#delete" style="justify-content: flex-end; flex-grow: 1; margin-right: 20px; -unity-font-definition: resource(&apos;Fonts/Kanit-Regular&apos;); -unity-font-style: normal; font-size: 60px;" />
+            </ui:VisualElement>
         </ui:VisualElement>
-        <UI.CustomElement.CustomButton text="Tạo phòng ngay" name="create-room-btn" icon-image="project://database/Assets/Resources/Sprites/right-arrow.png?fileID=2800000&amp;guid=0cdf9f3322656684b983e28ddcb83e8f&amp;type=3#right-arrow" class="button" style="position: absolute; bottom: 150px; align-self: center; width: 900px;">
-            <UI.CustomElement.LoadingElement.LoadingDotEffect number-of-dot="3" name="loading" style="position: absolute; flex-grow: 1; height: 50%; width: 50%;" />
-        </UI.CustomElement.CustomButton>
+        <ui:VisualElement name="loading-element" class="loading-element" style="display: flex;">
+            <UI.CustomElement.LoadingElement.LoadingDotEffect name="loading-effect" radius="10" number-of-dot="20" point-to-next-dot-start="3" style="flex-direction: row; flex-grow: 1; align-self: stretch;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="header" style="flex-grow: 1; position: absolute; top: 100px; padding-right: 100px; padding-left: 100px; width: 100%; flex-direction: row; align-items: center;">
+            <UI.CustomElement.CustomButton icon-image="project://database/Assets/Resources/Sprites/back.png?fileID=2800000&amp;guid=2268eb7fbdb26c54988801e57d76b882&amp;type=3#back" name="back-btn" style="width: 100px; height: 100px; padding-top: 20px; padding-right: 20px; padding-bottom: 20px; padding-left: 20px; position: absolute;" />
+            <ui:Label text="Tham gia phòng" picking-mode="Ignore" style="position: relative; align-self: center; flex-grow: 1; font-size: 60px;" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

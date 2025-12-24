@@ -68,24 +68,3 @@
     padding-left: 50px;
     color: rgba(255, 255, 255, 0.62);
 }
-
-#loading-element {
-    background-color: rgb(19, 91, 236);
-}
-
-.loading-element {
-    position: absolute;
-    bottom: 150px;
-    align-self: center;
-    width: 900px;
-    height: 175px;
-    justify-content: center;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    display: flex;
-    flex-direction: row;
-    padding-right: 200px;
-    padding-left: 200px;
-}

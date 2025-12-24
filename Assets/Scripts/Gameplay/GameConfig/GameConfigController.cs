@@ -6,11 +6,11 @@ namespace Gameplay.GameConfig
     {
         [Networked] public int NumberOfDigits { get; private set; }
 
-        public void SetConfig(CreateGameConfig config)
+        public void SetConfig(ConnectRoomArgs.CreateRoomArgs args)
         {
             if (!Runner.IsServer) return;
             
-            NumberOfDigits = config.NumberOfDigits;
+            NumberOfDigits = args.NumberOfDigits;
         }
     }
 }

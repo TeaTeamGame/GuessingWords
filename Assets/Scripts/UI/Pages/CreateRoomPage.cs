@@ -14,7 +14,7 @@ namespace UI.Pages
         [SerializeField] private CreateGameEvent requestCreateRoomEvent;
         [SerializeField] private GameEvent backToPreviousPageEvent;
         
-        [SerializeField] private float effectSpeed = 0.3f;
+        [SerializeField] private float effectSpeed = 2f;
         
         private Button _backButton;
         private SelectNumberOfDigits _numberOfDigits;
@@ -54,7 +54,7 @@ namespace UI.Pages
         
         private void CreateRoomButtonClicked()
         {
-            requestCreateRoomEvent.Raise(new CreateGameConfig
+            requestCreateRoomEvent.Raise(new ConnectRoomArgs.CreateRoomArgs
             {
                 NumberOfDigits = _numberOfDigits.CurrentSelectedValue
             });

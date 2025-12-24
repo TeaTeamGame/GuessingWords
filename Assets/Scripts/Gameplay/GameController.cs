@@ -1,4 +1,5 @@
-﻿using GameCore.GameEvent;
+﻿using System.Collections;
+using GameCore.GameEvent;
 using GameCore.GameState;
 using Gameplay.GameConfig;
 using Network;
@@ -9,39 +10,48 @@ namespace Gameplay
     public class GameController : MonoBehaviour
     {
         [SerializeField] private CreateGameEvent createGameEvent;
+        [SerializeField] private GameEvent<string> joinGameEvent;
         [SerializeField] private GameStateChangeEvent changeGameStateEvent;
         
         [SerializeField] private GameConfigController gameConfigController;
         [SerializeField] private RoomManager roomManager;
-
-        private RunnerCallback _runnerCallback;
-        private CreateGameConfig _createGameConfig;
         
-        private void Start()
+        private ConnectRoomArgs.CreateRoomArgs _createRoomArgs;
+        
+        private IEnumerator Start()
         {
-            _runnerCallback = roomManager.GetComponent<RunnerCallback>();
-            _runnerCallback.OnRoomCreated += () =>
+            roomManager.OnRoomCreated += () =>
             {
-                gameConfigController.SetConfig(_createGameConfig);
+                gameConfigController.SetConfig(_createRoomArgs);
             };
+
+            yield return new WaitForEndOfFrame();
             
             changeGameStateEvent?.Raise(GameState.MainMenu);    
         }
 
         private void OnEnable()
         {
-            createGameEvent.RegisterListener(CreateGameRequested);
+            createGameEvent.RegisterListener(HandleCreateGameRequest);
+            joinGameEvent.RegisterListener(HandleJoinGameRequest);
         }
 
         private void OnDisable()
         {
-            createGameEvent.UnregisterListener(CreateGameRequested);
+            createGameEvent.UnregisterListener(HandleCreateGameRequest);
+            joinGameEvent.UnregisterListener(HandleJoinGameRequest);
+
         }
 
-        private void CreateGameRequested(CreateGameConfig config)
+        private void HandleCreateGameRequest(ConnectRoomArgs.CreateRoomArgs args)
         {
-            _createGameConfig = config;
+            _createRoomArgs = args;
             roomManager.StartHost();
+        }
+        
+        private void HandleJoinGameRequest(string roomId)
+        {
+            roomManager.StartClient(roomId);
         }
     }
 }

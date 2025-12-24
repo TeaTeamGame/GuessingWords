@@ -32,7 +32,7 @@ namespace UI
         
         private Stack<PageNavigation> _pageHistory = new ();
         
-        public void Awake()
+        public void Start()
         {
             foreach (var uiPage in pageObjects)
             {
